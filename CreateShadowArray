@@ -1,0 +1,7 @@
+function createShadowArray(modelArray, value){ //Returns an  array the same length as the model array supplied, containing only the supplied value
+  let shadowArray=[];
+  for (z=0;z<modelArray.length;z++){
+    shadowArray.push(value);
+  }
+  return shadowArray
+}
