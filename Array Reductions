@@ -44,3 +44,19 @@ function cleanOutSplices(array,entriesToSplice,toNew){ //RETURNS cleanedArray:AN
     }
   }
 }
+function removeArrayDups(array,asNewArrayTF){
+  let entriesToSplice=[];
+  for (y= 0;y<array.length;y++){
+    let entry = array[y];
+    let indexOfDup = array.indexOf(entry,y+1)
+      if(indexOfDup!==-1){
+        entriesToSplice.push(indexOfDup)
+      }    
+  }
+  let returnArray = cleanOutSplices(array,entriesToSplice)
+  if(asNewArrayTF==false){
+    array = returnArray;
+  }else{
+    return returnArray;
+  }
+}
