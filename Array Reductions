@@ -1,0 +1,46 @@
+function cleanOutVals(values,array){  //Returns a new array without any instances of a given value or array of values
+  let arrayCheck = Array.isArray(values);
+  let newArray = [];
+  if(arrayCheck ==false){
+    for (z=0;z<array.length;z++){
+      if(array[z]!=values){
+        newArray.push(array[z]);
+      }
+    }
+  }else{
+    let arrayDup = array.slice();
+    for(z=0;z<values.length;z++){
+      let arrayIteration =[];
+      let value = values[z];
+      for (y = 0;y<arrayDup.length;y++){
+        if(arrayDup[y]!=value){
+          arrayIteration.push(arrayDup[y]);
+        }
+      }
+      arrayDup = arrayIteration;
+    }
+    newArray=arrayDup
+  }
+  return newArray;
+}
+function cleanOutSplices(array,entriesToSplice,toNew){ //RETURNS cleanedArray:AN ARRAY WITH VALUES FROM A GIVEN ARRAY, WITHOUT THOSE AT GIVEN INDEXES,IF THE GIVEN ARRAY IS A 2D ARRAY, ALL ARRAYS IN THE ARRAY OF ARRAYS MUST BE THE SAME LENGTH
+  if(entriesToSplice.length===0){
+    Logger.Log("Nothing to splice!");
+    return array;
+  }else{
+    let cleanedArray = [];
+    for (z=0;z<arrayOfArrays.length;z++){
+      let arrayToSplice = arrayOfArrays[z].slice();
+      for (y=0;y<entriesToSplice.length;y++){ 
+        let indexOfSplice = entriesToSplice[y]-y;
+        arrayToSplice.splice(indexOfSplice,1);
+      }
+      cleanedArray.push(arrayToSplice);
+    }
+    if(toNew === false){
+      array = cleanedArray;
+    }else{
+      return cleanedArray;
+    }
+  }
+}
