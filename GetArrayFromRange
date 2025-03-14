@@ -1,0 +1,15 @@
+function getArrayFromRange(range,rowORColumn){ 
+  if(rowORColumn !=="ROW"){
+    if(inverseORReg !=="COL"){
+      Logger.log("You did not provide an input for rowORCol, so I will assume this range is a column.");
+    }
+  }
+  let workingArray = range.getValues();
+  let returnArray=[];
+  if(rowORColumn ==="ROW"){
+    returnArray= workingArray[0]
+  }else {
+    returnArray= arrayReduce(workingArray);
+  }
+  return returnArray
+}
