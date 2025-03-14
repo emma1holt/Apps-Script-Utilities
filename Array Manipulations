@@ -1,0 +1,29 @@
+function arrayReduce(array){
+  let returnArray = [];
+  for (z = 0; z <array.length; z++) {
+    returnArray[z]=array[z][0];
+  }
+  return returnArray;
+}
+
+function addArrayDimension(array){
+  let newArray = [];
+  let arrayCopy = array.slice();
+  for (z=0;z<arrayCopy.length;z++){
+    let innerArray = [arrayCopy[z]];
+    newArray.push(innerArray);
+  }
+  return newArray;
+}
+
+function redirect(arrayOfArrays){                 //Returns a 2d array with rows and columns inverted from original(Y-Level)
+  let redirectedArrayOfArrays=[];
+  for (z=0;z<arrayOfArrays[0].length;z++){        //For the number of values in an inner array,
+    let newInnerArray = [];                       ////begin a new inner array.
+    for (y=0;y<arrayOfArrays.length;y++){         ////For the number of arrays in the 2D array,
+      newInnerArray.push(arrayOfArrays[y][z]);    //////push the value at the position of the inner array within the 2D array to the new inner array.
+    }                                             ////after going through the number of arrays in the original 2D array,
+    redirectedArrayOfArrays.push(newInnerArray);  ////push the new inner array to the new 2D array.
+  }
+  return redirectedArrayOfArrays;
+}
