@@ -1,0 +1,28 @@
+function getIndexArrayFromVal(value,searchArray,inverseORReg){
+    if(inverseORReg !=="REG"){
+      if(inverseORReg !=="INVERSE"){
+        Logger.log("Valid inputs for inverseORReg are INVERSE or REG");
+      }
+    }
+    let indexArray = [];                   
+    for (z=0;z<searchArray.length;z++){
+      if(searchArray[z]==value){
+        if(inverseORReg ==="REG"){
+          indexArray.push(z);
+        }
+      }else{
+        if(inverseORReg==="INVERSE"){
+          indexArray.push(z);
+        }
+      }    
+    }
+    if (indexArray.length ===0){
+      if(inverseORReg ==="REG"){
+        Logger.log("No indices for value")
+      }
+      if(inverseORReg ==="INVERSE"){
+        Logger.log("No indices without value");
+      }
+    }                                    
+    return indexArray;
+}
